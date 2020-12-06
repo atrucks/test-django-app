@@ -26,7 +26,7 @@ def new(request):
         )
     elif request.method == 'POST':
         if request.POST['name']:
-            create_new_issue.delay(request.POST['name'])
+            create_new_issue(request.POST['name'])
             return redirect(reverse('tasks:index'))
         else:
             return redirect(reverse('tasks:new'))
